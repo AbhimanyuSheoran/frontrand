@@ -1,0 +1,233 @@
+#header {
+	vertical-align: middle;
+	float: center;
+        width: 1000px;
+        height: 65px;
+        background-color: #F2EAEA;
+	margin-left: 120px;
+        }
+#header h1{
+	margin-left: 21px; 
+	margin-right: -22px;
+}
+#header img{
+	overflow: hidden;
+	float:left;
+	position:relative;
+	height:65px;
+	width:10%;
+	}
+nav {
+	float: right;
+	}
+	
+#header nav li {
+		display: inline;
+		font-family:"Comic Sans MS", cursive, sans-serif;
+		font-size:150%;
+		}
+
+#container {
+	padding-left: 20px;   /* LC width */
+	padding-right: 20px;  /* RC width */
+        float: left;
+        width:  1000px;
+        height: 95%;
+        background-color: #FFFFFF;
+	display: table-cell;
+	vertical-align: middle;
+	margin-left: 100px;
+         }
+
+ #slideshowWindow {
+	width:1000px;
+	height:500px ;
+	position:relative;
+	padding : 0;
+	overflow:hidden;
+	top:0%;
+}
+
+ #slideshowWindow .slide {
+	margin:0;
+	width:1000px; 
+	height:550px;
+	position:relative;
+	padding:0;
+	overflow:hidden;
+	
+	
+}
+
+ #slideshowWindow .slide .slideText {
+	position:absolute;
+	bottom:100px;
+	left:0px;
+	width:100%;
+	height:130px;
+	margin:0;
+	font-family:"Comic Sans MS", cursive, sans-serif;
+	font-size:150%;
+	letter-spacing: -1px;  
+	color:#FFFFFF;
+   	background: rgb(0, 0, 0); /* fallback color */
+	background: rgba(0, 0, 0, 0.6);
+	padding: 10px;
+	text-align:left; 
+}
+
+ #slideshowWindow .slide .slideText a:link, 
+ #slideshowWindow .slide .slideText a:visited {
+	color:#ffffff;
+	text-decoration:none;
+}
+
+ #slideshowWindow .slide .slideText h2, 
+ #slideshowWindow .slide .slideText p {
+	margin:10px 0 0 10px;
+	padding:0;
+}
+
+#centre {
+  width: 1000px;
+}
+#centre h1{
+	font-family:"Comic Sans MS", cursive, sans-serif;
+	font-size:200%;
+	text-align:left;
+	
+}
+#centre a{
+	font-family:"Comic Sans MS", cursive, sans-serif;
+	font-size:120%;
+	text-align:left;
+	
+}
+#table
+{
+	font-family: "Comic Sans MS", cursive, sans-serif;
+	width: 1000px;
+	border-collapse: collapse;
+}
+#table th
+{
+	padding: 8px 2px;
+	font-weight: normal;
+	font-size: 55px;
+	border-bottom: 2px solid #6678b1;
+	border-right: 30px solid #fff;
+	border-left: 30px solid #fff;
+	color: #2C2C2C;
+	text-align:center;
+}
+#table td
+{
+	padding: 12px 2px 0px 2px;
+	border-right: 30px solid #fff;
+
+	color: #2C2C2C;
+	text-align:center;
+}
+
+#lower{
+	width: 1000px;
+
+	font-family: "Comic Sans MS", cursive, sans-serif;
+}
+#lower h2{
+	font-size:200%;
+	text-align:left;
+}
+.lower_text{
+	font-size:20px;
+}
+.block{	position:relative;
+ 	width:1000px; 
+	height:100px; 
+	background-color:#fafafa;
+	}
+
+.image{
+	width:110px; 
+	height:100px;
+	overflow:hidden;
+	float:left;
+}
+
+.lower_heading{
+font-size:40px;
+	}
+
+
+.text{
+	width:890px; 
+	height:100px;
+	float:right;
+	}
+.blockcentre{float:centre;
+	font-size:50px;
+
+}
+
+#footer {
+	background-color:purple;
+	position: absolute;
+	height: 100px;
+	margin:120px;
+	width:1000px;
+	} 
+
+
+
+.thumbnail{
+position: relative;
+z-index: 0;
+	float:left;
+}
+
+.thumbnail:hover{
+background-color: transparent;
+z-index: 50;
+}
+
+.thumbnail span{ /*CSS for enlarged image*/
+position: absolute;
+background-color: transparent;
+padding: 5px;
+left: -1000px;
+border: 0px black;
+visibility: hidden;
+color: black;
+text-decoration: none;
+}
+
+.image2{ /*CSS for enlarged image*/
+border-width: 0;
+padding: 2px;
+float:left
+}
+
+.thumbnail:hover span{ /*CSS for enlarged image on hover*/
+position:absolute	;
+visibility: visible;
+top: -70;
+left: -100px; /*position where enlarged image should offset horizontally */
+margin-left:200px;
+overflow: hidden;
+}
+
+.hidden{
+display:none;
+}
+.hide{
+display:none;
+}
+
+.formdisp{
+	position:relative;
+	width:100%;
+	border:1px solid #000;
+}
+canvas{
+  border:1px solid red;
+}

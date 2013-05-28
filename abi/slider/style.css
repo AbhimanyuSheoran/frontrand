@@ -1,0 +1,127 @@
+/* Basic Styling */
+body{
+	background:transparent url(img/bg.jpg);
+	font:15px/2 'Adobe Caslon Pro', Georgia, Serif;
+	margin:0;
+	padding:0;
+}
+a{outline:0 none}
+#pagewrap{
+	margin:120px auto;
+	padding:0;
+	position:relative;
+	height:100%;
+	width:960px;
+}
+header{
+	display:block;
+	float:right;
+	margin-right:40px;
+	width:192px;
+	z-index:52;
+	position:relative;
+}
+h1{
+	background:transparent url(img/separator.png) no-repeat center bottom;
+	font-size:18px;
+	font-weight:bold;
+	height:70px;
+	line-height:1.1;
+	margin:55px 10px 0;
+	text-align:center;
+	text-transform:uppercase;
+}
+.ribbon{
+	background:transparent url(img/info-bg.png) no-repeat;
+	height:482px;
+	width:192px;
+	position:absolute;
+	right:40px;
+	top:-3px;
+	z-index:50;
+}
+#slidewrap{position:absolute;}
+#slider{
+	position:relative;
+	height:auto;
+	width:920px;
+	border:10px solid #fff;
+	box-shadow:0 0 5px #444;
+	margin:10px;
+}
+#slider img{
+    position:absolute;
+    top:0px;
+    left:0px;
+    display:none;
+}
+
+/* The Nivo Slider styles */
+.nivoSlider {
+	position:relative;
+}
+.nivoSlider img {
+	position:absolute;
+	top:0px;
+	left:0px;
+}
+/* If an image is wrapped in a link */
+.nivoSlider a.nivo-imageLink {
+	position:absolute;
+	top:0px;
+	left:0px;
+	width:100%;
+	height:100%;
+	border:0;
+	padding:0;
+	margin:0;
+	z-index:6;
+	display:none;
+}
+/* The slices and boxes in the Slider */
+.nivo-slice {
+	display:block;
+	position:absolute;
+	z-index:5;
+	height:100%;
+}
+.nivo-box {
+	display:block;
+	position:absolute;
+	z-index:5;
+}
+.nivo-directionNav{display:none!important}
+.nivo-html-caption {
+    display:none;
+}
+.nivo-caption{
+	position:absolute;
+	right:20px;
+	text-align:center;
+	top:130px;
+	width:192px;
+	z-index:60;
+}
+.nivo-caption p{margin:0}
+.nivo-caption .title{font-style:italic}
+.nivo-controlNav{
+	position:absolute;
+	bottom:10px;
+	right:20px;
+	height:15px;
+	width:192px;
+	text-align:center;
+	display:block;
+	z-index:51;
+}
+.nivo-controlNav a{
+	background:transparent url(img/button.png) no-repeat center center;
+	display:inline-block;
+	height:14px;
+	width:14px;
+	text-indent:-9999px;
+	cursor:pointer;
+}
+.nivo-controlNav .active{
+	background:transparent url(img/button_active.png);	
+}

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta name="author" content="Aris FM" />
+	<meta charset="UTF-8" />
+	<title>My Photo Slides</title>
+	<link href="{{MEDIA_URL}}style.css" media="screen" rel="stylesheet" type="text/css"/>
+	<script src="jquery-1.6.1.min.js" type="text/javascript"></script>
+	<script src="jquery.nivo.slider.pack.js" type="text/javascript"></script>
+	<script type="text/javascript">
+	$(window).load(function() {
+		$('#slider').nivoSlider();
+	});
+	</script>
+	<!--[if IE]>
+		<script src="modernizr-2.0.min.js"></script>
+	<![endif]--> 		
+</head>
+
+<body>
+
+<div id="pagewrap">
+	<header>
+	<h1>
+		<a>My Photo Slides</a>
+	</h1>
+	</header>
+	
+	<div id="slidewrap">
+		<div id="slider">
+				<img alt="Gallery Picture" title="#caption1" src="img/sample.jpg" />
+				<img alt="Gallery Picture" title="#caption2" src="img/sample1.jpg" />
+				<img alt="Gallery Picture" title="#caption3" src="img/sample2.jpg" />
+				<img alt="Gallery Picture" title="#caption4" src="img/sample3.jpg" />
+				<img alt="Gallery Picture" title="#caption5" src="img/sample4.jpg" />
+				<img alt="Gallery Picture" title="#caption6" src="img/sample5.jpg" />
+		</div>
+		<div class="ribbon"></div>
+		<div id="caption1" class="nivo-html-caption">
+			<span class="title">Photographer:</span><br/>
+			Enrico Nunziati<br/>
+			<span class="title">Location:</span><br/>
+			Namib desert<br/>
+			<span class="title">Model:</span><br/>
+			Dead Vlei<br/>
+			<span class="title">Date:</span><br/>
+			Mar 18, 2011
+		</div>
+		<div id="caption2" class="nivo-html-caption">
+			<span class="title">Photographer:</span><br/>
+			Lina Dhammanari<br/>
+			<span class="title">Location:</span><br/>
+			Lombok Island, Indonesia<br/>
+			<span class="title">Model:</span><br/>
+			Mount Rinjani<br/>
+			<span class="title">Date:</span><br/>
+			May 8, 2008
+		</div>
+		<div id="caption3" class="nivo-html-caption">
+			<span class="title">Photographer:</span><br/>
+			Agnes Sim<br/>
+			<span class="title">Location:</span><br/>
+			Borobudur, Indonesia<br/>
+			<span class="title">Model:</span><br/>
+			Big Stupa<br/>
+			<span class="title">Date:</span><br/>
+			Jun 12, 2008
+		</div>
+		<div id="caption4" class="nivo-html-caption">
+			<span class="title">Photographer:</span><br/>
+			Nino Satria<br/>
+			<span class="title">Location:</span><br/>
+			Taman Safari Indonesia<br/>
+			<span class="title">Model:</span><br/>
+			Tally Giraffe<br/>
+			<span class="title">Date:</span><br/>
+			Aug 16, 2009 
+		</div>
+		<div id="caption5" class="nivo-html-caption">
+			<span class="title">Photographer:</span><br/>
+			Timo Balk<br/>
+			<span class="title">Location:</span><br/>
+			Ubud, Bali, Indonesia<br/>
+			<span class="title">Model:</span><br/>
+			Offerings<br/>
+			<span class="title">Date:</span><br/>
+			Dec 20, 2009 
+		</div>
+		<div id="caption6" class="nivo-html-caption">
+			<span class="title">Photographer:</span><br/>
+			Aris Wjay<br/>
+			<span class="title">Location:</span><br/>
+			Uluwatu-Bali<br/>
+			<span class="title">Model:</span><br/>
+			Beautiful Beach<br/>
+			<span class="title">Date:</span><br/>
+			Jul 20, 2011 
+		</div>
+	</div>
+</div>
+</body>
+</html>

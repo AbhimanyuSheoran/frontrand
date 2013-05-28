@@ -1,0 +1,218 @@
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Admin page</title>
+<link href="{{MEDIA_URL}}main.css" media="screen" rel="stylesheet" type="text/css"/>
+<script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js'></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+							   
+		var currentPosition = 0;
+		var slideWidth = 1000;
+		var slides = $('.slide');
+		var numberOfSlides = slides.length;
+		var slideShowInterval;
+		var speed = 3000;
+
+		
+		slideShowInterval = setInterval(changePosition, speed);
+		
+		slides.wrapAll('<div id="slidesHolder"></div>')
+		
+		slides.css({ 'float' : 'left' });
+		
+		$('#slidesHolder').css('width', slideWidth * numberOfSlides);
+		
+		
+		function changePosition() {
+			if(currentPosition == numberOfSlides - 1) {
+				currentPosition = 0;
+			} else {
+				currentPosition++;
+			}
+			moveSlide();
+		}
+		
+		
+		function moveSlide() {
+				$('#slidesHolder')
+				  .animate({'marginLeft' : slideWidth*(-currentPosition)});
+		}
+
+	});
+	
+					function myFunctionAjax(val,prev){
+						var value = prompt('New Value for '+val,prev, 'Prompt Dialog');
+						if(value){
+								if(/^[\d,. ]+$/.test(value)){
+								var val = val;
+ 									$.ajax({   
+ 										type: 'GET',
+            							url: '/stat-change/?'+val+'='+value,
+            							data: {},
+            							success: function(){  
+            												$('#'+val).text(value);
+            												},           							        
+        								}); // end new Ajax.Request
+        						}
+        						else{
+        							alert('Enter Integer Values only');
+        							myFunction(val,prev);
+        							}
+								}
+								else
+									alert('Value Unchanged');
+								}
+																
+								
+    							
+					function addfaces()
+  						{
+  						$("#faceform").toggleClass("hide");
+						$("#faceform").toggleClass("formdisp");
+    					}
+    				function editfaces(fid)
+  						{
+  						$("#"+fid).toggleClass("hide");
+						$("#"+fid).toggleClass("formdisp");
+    					}
+					function cancel(fid)
+  						{
+  						$("#"+fid).toggleClass("formdisp");
+						$("#"+fid).toggleClass("hide");
+    					}
+    										
+</script>
+</head>
+<body>
+	<div id ="header">
+		<header>
+			<h1>
+			<img src="{{ MEDIA_URL }}images/companylogo.jpg"/>
+			</h1>
+			<nav>
+			</br>
+			<ul>
+				<li><a href="/" title="Home">Home</a></li>
+				<li><a href="/" title="Contact">Contact</a></li>
+			</ul>
+			</nav>
+		</header>
+	</div>
+	<div id = "container">
+		<div id="slideshow">
+     		<div id="slideshowWindow">
+     			{% if documents %}
+					{% for document in documents %}
+        				<div class="slide">
+        					<a href="/show/">
+        	 					<img src="{{ document.image.url }}"  />
+        	 				</a>
+					 		<div class="slideText">
+                   				<p class="slideDes">{{ document.caption.title }}</p>
+                     			<p class="slideLink"><a href="/delete/?pid={{ document.id}}">click to delete image and caption</a></p>
+                 			</div><!--/slideText-->
+                 		</div><!--/slide-->
+        			{% endfor %}
+        		{% else %}
+        			<div class="slide">
+        				<a href="/show/">
+        					<img src="{{MEDIA_URL}}/images/3.jpg" /></a>
+					 	<div class="slideText">
+                   			<p class="slideDes">No images yet click image area to add images and captions.</p>   
+                 		</div><!--/slideText-->
+					</div><!--/slide-->
+				{% endif %}
+     		</div>
+		</div>
+     	<div id="centre" >
+			</br></br>
+			
+			<h1>Some Stats::</h1>
+			<a align="left">click on numbers to change them</a>
+			<table id="table">
+				<tr>
+					<th id ='lenders' onclick="myFunctionAjax('lenders',{{stat.lenders}})">{{stat.lenders}}</td>
+					<th id='raised' onclick="myFunctionAjax('raised',{{stat.raised}})">{{stat.raised}}</td>
+					<th id='livesch' onclick="myFunctionAjax('livesch',{{stat.livesch}})">{{stat.livesch}}</td>
+					<th id='repay' onclick="myFunctionAjax('repay',{{stat.repay}})" >{{stat.repay}}%</td>
+				</tr>
+				<tr>
+					<td  onclick="myFunctionAjax('lenders',{{stat.lenders}})">awsum lenders</td>
+					<td onclick="myFunctionAjax('raised',{{stat.raised}})">raised</td>
+					<td onclick="myFunctionAjax('livesch',{{stat.livesch}})">lives changed</td>
+					<td onclick="myFunctionAjax('repay',{{stat.repay}})" >repayment rate</td>
+				</tr>
+				</br></br>
+			</table>		
+		</div>	
+		<div id = "newlow">
+			<h2>faces around</h2>
+			<form action='/faces/' enctype="multipart/form-data" method="POST">
+			      {% csrf_token %}
+  				<button type="button" id="add" onclick="addfaces()">add members</button>
+  				<br>
+  				<div id="faceform" class="hide">
+  					
+  					{{form.as_p}}
+  					<input type="submit" value="add" id="upload-image">
+  					*all fields mandatory!!
+  				</div>
+
+			</form>	
+        	</br>
+        	{%if faces%}
+        		{% for face in faces %}
+        	
+        	<div class="block" class="image" >
+        	{%if face.image.url %}
+  				<div class="thumbnail" href ="/"> 
+  					<img src="{{ face.image.url }}" width="110px" height="100px" border="0" /><span>
+					<img src="{{ face.image.url }}" class="image2" /><br />{{ face.name.title}},{{ face.detail }}</span></a>
+				</div>
+			{% else %}
+				<div class="thumbnail" href ="/"> 
+  					<img src="{{ MEDIA_URL }}/faces/default.jpg" width="110px" height="100px" border="0" /><span>
+					<img src="{{ MEDIA_URL }}/faces/default.jpg" class="image2" /><br />{{ face.name.title}},{{ face.detail }}</span></a>
+				</div>
+				
+			{%endif%}
+				<div class="text">
+        			<span class="lower_heading">{{ face.name.title }},{{ face.detail }}</span>
+        			</br>
+        			<span class="lower_text">{{ face.testimonial}}</span></br>
+        			
+			      	<a onclick="editfaces({{face.id}})">edit</a> |
+			      	<a href="/delete-face/?fid={{ face.id}}">delete</a>
+  					<br>
+  								        			
+        		</div>
+		
+        	</div>
+        	<form id="form_{{face.id}}" action='/edit-face/?fid={{face.id}}' enctype="multipart/form-data" method="POST">
+			      		{% csrf_token %}
+        	<div id="{{face.id}}" class="hide">
+        				edit {{face.name}}
+  						{{form.as_p}}
+  						<input type="submit" value="edit" id="upload-image"> |
+  						<button type="button" id="cancel_{{face.id}}" onclick='editfaces("{{face.id}}")'>cancel</button>
+  			</div>
+  			</form>
+        	
+        	</br>	
+        	{% endfor %}
+        	{% else %}
+        	<div class="block">
+				<div class="text">
+        			<span class="blockcentre" >No faces added yet</span>
+        			</br>
+  								        			
+        		</div>
+		
+        	</div>
+        		{%endif%}
+
+        	</br>
+		</div>	
+</body>
+</html>

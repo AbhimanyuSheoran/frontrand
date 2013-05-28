@@ -1,0 +1,8 @@
+<h1>Select an Image to add</h1>
+<form enctype="multipart/form-data" 
+      method="POST"
+      action="/show/">
+      {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="add" id="files">
+</form>
