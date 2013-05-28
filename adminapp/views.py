@@ -17,21 +17,30 @@ def index(request):
             for key in keys:
                 if str(key)=='lenders':
                     base.lenders=request.GET[key]
-                elif str(key)=='raised':
+                if str(key)=='raised':
                     base.raised=request.GET[key]
-                elif str(key)=='livesch':
+                if str(key)=='livesch':
                     base.livesch=request.GET[key]
-                elif str(key)=='repay':
+                if str(key)=='repay':
                     base.repay=request.GET[key]
             base.save()
             return HttpResponse('success')    
-        
+	else:
+	    lenders=request.GET['lenders']
+       	    raised=request.GET['raised']
+	    livesch=request.GET['livesch']
+            repay=request.GET['repay']
+	    base=BasicStat(lenders=lenders, raised=raised,livesch=livesch,repay=repay)
+	    base.save()
+            return HttpResponseRedirect('/admin/')
 
 def admin(request):
     
     ini=BasicStat.objects
     inis=ini.values()
-    ini=inis.get(id=1)
+    if not inis:
+	return HttpResponseRedirect('/stat-change/?lenders=0&raised=0&livesch=0&repay=0')
+    ini=inis.get(id=1)	
     documents = Pictures.objects.all()
     faces = ImageWithThumbnail.objects.all()
     form=UploadFaceForm()
