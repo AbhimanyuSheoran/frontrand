@@ -1,0 +1,11 @@
+first command::
+
+"sudo python manage.py syncdb"
+
+this would create a sqlitedb in the project folder 
+
+after this 
+"sudo python manage.py runserver"
+
+
+this should get the project going
